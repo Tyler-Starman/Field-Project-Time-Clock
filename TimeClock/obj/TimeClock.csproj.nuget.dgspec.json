@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj": {}
+    "C:\\Users\\elimc\\OneDrive\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj": {
+    "C:\\Users\\elimc\\OneDrive\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
+        "projectUniqueName": "C:\\Users\\elimc\\OneDrive\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
         "projectName": "TimeClock",
-        "projectPath": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
-        "packagesPath": "C:\\Users\\tyler\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\obj\\",
+        "projectPath": "C:\\Users\\elimc\\OneDrive\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
+        "packagesPath": "C:\\Users\\elimc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elimc\\OneDrive\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tyler\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elimc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
