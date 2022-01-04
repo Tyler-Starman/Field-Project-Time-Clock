@@ -41,15 +41,8 @@ namespace TimeClock
                     SqlDataAdapter adpt = new SqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adpt.Fill(ds);
-                    
-                    //get id
-                    SqlCommand getId = new SqlCommand("Select ID from loginForm where Name=@Username and Password=@UserPassword", con);
-                    getId.Parameters.AddWithValue("@Username", txtUsername.Text);
-                    getId.Parameters.AddWithValue("@UserPassword", txtPassword.Text);
-                    //this breaks when invalid name and pass is entered
-                    //this also will not work if two people have the same name and password.
-                    id = getId.ExecuteScalar().ToString();
                     con.Close();
+
                     //test code
                     //MessageBox.Show("id retrieved is: " + id);
 
@@ -58,9 +51,15 @@ namespace TimeClock
 
                     if (count == 1)
                     {
+                        con.Open();
+                        SqlCommand getId = new SqlCommand("Select ID from loginForm where Name=@Username and Password=@UserPassword", con);
+                        getId.Parameters.AddWithValue("@Username", txtUsername.Text);
+                        getId.Parameters.AddWithValue("@UserPassword", txtPassword.Text);
+                        id = getId.ExecuteScalar().ToString();
+                        con.Close();
                         MessageBox.Show("Successful Login");
                         //check for Admin login ADMIN MUST BE ID OF 1 IN SQL TABLE
-                        if (id == "1")
+                        if (txtUsername.Text == "Martin")
                         {
                             txtUsername.Clear();
                             txtPassword.Clear();

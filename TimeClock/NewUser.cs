@@ -39,7 +39,7 @@ namespace TimeClock
                 {
                     SqlConnection con = new SqlConnection(Conn);
                     con.Open();
-                    cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "')", con);
+                    cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No')", con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Student Created");
                     con.Close();

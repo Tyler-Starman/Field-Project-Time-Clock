@@ -38,6 +38,7 @@ namespace TimeClock
             // 
             // dgvSearch
             // 
+            this.dgvSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearch.Location = new System.Drawing.Point(13, 22);
             this.dgvSearch.Name = "dgvSearch";
