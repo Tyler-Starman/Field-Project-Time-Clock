@@ -24,6 +24,7 @@ namespace TimeClock
         {
             txtUsername.Clear();
             txtPassword.Clear();
+            txtStudentId.Clear();
             this.Close();
         }
 
@@ -31,26 +32,41 @@ namespace TimeClock
         {
             try
             {
-                if (txtUsername.Text == "" || txtPassword.Text == "")
+                if (txtUsername.Text == "" || txtPassword.Text == "" || txtStudentId.Text == "")
                 {
-                    MessageBox.Show("Please Eneter Username and Password");
+                    MessageBox.Show("Please Enter all fields");
                 }
                 else
                 {
                     SqlConnection con = new SqlConnection(Conn);
                     con.Open();
-                    cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No')", con);
+                    cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No', '" + txtStudentId.Text + "')", con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Student Created");
                     con.Close();
                     txtUsername.Clear();
                     txtPassword.Clear();
+                    txtStudentId.Clear();
 
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtStudentId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStudentId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

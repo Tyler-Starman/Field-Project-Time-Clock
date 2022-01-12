@@ -20,6 +20,7 @@ namespace TimeClock
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
         SqlCommand cmd;
         SqlCommand clk;
+        SqlCommand ctotTime;
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
@@ -50,8 +51,11 @@ namespace TimeClock
             reader.Close();
             foreach(var personId in ids)
             {
-                cmd = new SqlCommand("insert into ClockPunches values('" + personId.ToString() + "', '" + DateTime.Now + "', 'OUT')", con);
+             
+                cmd = new SqlCommand("UPDATE ClockPunches set ClockOut = '" + DateTime.Now + " ' WHERE ID = '" + personId + "'and ClockOut is null", con);
+                ctotTime = new SqlCommand("update ClockPunches set TotalTimeDay = datediff(minute, ClockIn, ClockOut) where TotalTimeDay is null;", con);
                 cmd.ExecuteNonQuery();
+                ctotTime.ExecuteNonQuery();
             }
             //END WORK IN PROGRESS
             clk = new SqlCommand("UPDATE loginForm SET ClockStatus = 'NO'", con);

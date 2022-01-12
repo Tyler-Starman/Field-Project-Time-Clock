@@ -20,13 +20,14 @@ namespace TimeClock
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
         SqlCommand cmd;
         SqlCommand clk;
+        SqlCommand ctotTime;
         String clockStatus;
 
         private void btnClockIn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(Conn);
             con.Open();
-            cmd = new SqlCommand("insert into ClockPunches values('" + FormLogin.id + "', '" + DateTime.Now + "', 'IN')", con);
+            cmd = new SqlCommand("insert into ClockPunches (ID, ClockIn) values('" + FormLogin.id + "', '" + DateTime.Now + "')", con);
             clk = new SqlCommand("UPDATE loginForm SET ClockStatus = 'YES' WHERE ID = '" + FormLogin.id + "'", con);
             cmd.ExecuteNonQuery();
             clk.ExecuteNonQuery();
@@ -41,9 +42,14 @@ namespace TimeClock
         {
             SqlConnection con = new SqlConnection(Conn);
             con.Open();
-            cmd = new SqlCommand("insert into ClockPunches values('" + FormLogin.id + "', '" + DateTime.Now + "', 'OUT')", con);
+            cmd = new SqlCommand("UPDATE ClockPunches set ClockOut = '"+ DateTime.Now+ " '  WHERE ID = '" + FormLogin.id + "'and ClockOut is null", con);
+
+            ctotTime = new SqlCommand("update ClockPunches set TotalTimeDay = datediff(minute, ClockIn, ClockOut)  WHERE ID = '" + FormLogin.id + "'and TotalTimeDay is null", con);
+
             clk = new SqlCommand("UPDATE loginForm SET ClockStatus = 'NO' WHERE ID = '" + FormLogin.id + "'", con);
+     
             cmd.ExecuteNonQuery();
+            ctotTime.ExecuteNonQuery();
             clk.ExecuteNonQuery();
             MessageBox.Show("You are now clocked out.");
             con.Close();
