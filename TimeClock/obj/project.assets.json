@@ -454,27 +454,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lj\\.nuget\\packages\\": {}
+    "C:\\Users\\tyler\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lj\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
+      "projectUniqueName": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
       "projectName": "TimeClock",
-      "projectPath": "C:\\Users\\Lj\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
-      "packagesPath": "C:\\Users\\Lj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lj\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\obj\\",
+      "projectPath": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\TimeClock.csproj",
+      "packagesPath": "C:\\Users\\tyler\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tyler\\Documents\\GitHub\\Field-Project-Time-Clock\\TimeClock\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
+        "C:\\Users\\tyler\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -517,7 +515,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

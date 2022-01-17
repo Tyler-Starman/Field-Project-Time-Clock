@@ -79,6 +79,40 @@ namespace TimeClock
             new SearchTimes().ShowDialog();
         }
 
+        private void btnPrintTimes_Click(object sender, EventArgs e)
+        {
+            //Get File Path Working So File Is At Root of Folder
+            string fileName = AppDomain.CurrentDomain.BaseDirectory + @"\ClockedTime.dat";
+            //MessageBox.Show(fileName);
+            SqlCommand comm = new SqlCommand();
+            comm.Connection = new SqlConnection(Conn);
+            //String sql = @"select ClockIn, ClockOut from clockPunches";
+            String sql = @"SELECT lf.Name, cp.ClockIn, cp.ClockOut, cp.TotalTimeDay
+                            FROM loginForm lf
+                            INNER JOIN ClockPunches cp
+                            ON lf.id = cp.id;";
+
+            comm.CommandText = sql;
+            comm.Connection.Open();
+
+            SqlDataReader sqlReader = comm.ExecuteReader();
+
+            // Change the Encoding to what you need here (UTF8, Unicode, etc)
+
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(fileName, false, Encoding.UTF8))
+            {
+                writer.WriteLine("Name" + "\t" + "Clock In Time        " + "\t" + "Clock Out Times        " + "\t" + "Total Time");
+                while (sqlReader.Read())
+                {
+                    //writer.WriteLine(sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"]);
+                    writer.WriteLine(sqlReader["Name"] + "\t" + sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"] + "\t" + sqlReader["TotalTimeDay"]);
+                }
+            }
+
+            sqlReader.Close();
+            comm.Connection.Close();
+        }
+
         //on load do something like this
         /*con.Open();
         SqlCommand getStatus = new SqlCommand("select ClockStatus from loginForm where ID = '" + FormLogin.id + "'", con);

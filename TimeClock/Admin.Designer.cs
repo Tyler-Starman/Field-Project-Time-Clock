@@ -35,6 +35,7 @@ namespace TimeClock
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnClockOutAll = new System.Windows.Forms.Button();
             this.btnClockedOut = new System.Windows.Forms.Button();
+            this.btnPrintTimes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClockedIn
@@ -97,11 +98,22 @@ namespace TimeClock
             this.btnClockedOut.UseVisualStyleBackColor = true;
             this.btnClockedOut.Click += new System.EventHandler(this.btnClockedOut_Click);
             // 
+            // btnPrintTimes
+            // 
+            this.btnPrintTimes.Location = new System.Drawing.Point(193, 74);
+            this.btnPrintTimes.Name = "btnPrintTimes";
+            this.btnPrintTimes.Size = new System.Drawing.Size(119, 40);
+            this.btnPrintTimes.TabIndex = 6;
+            this.btnPrintTimes.Text = "Print Out Times";
+            this.btnPrintTimes.UseVisualStyleBackColor = true;
+            this.btnPrintTimes.Click += new System.EventHandler(this.btnPrintTimes_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 264);
+            this.Controls.Add(this.btnPrintTimes);
             this.Controls.Add(this.btnClockedOut);
             this.Controls.Add(this.btnClockOutAll);
             this.Controls.Add(this.btnReturn);
@@ -122,5 +134,6 @@ namespace TimeClock
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnClockOutAll;
         private System.Windows.Forms.Button btnClockedOut;
+        private System.Windows.Forms.Button btnPrintTimes;
     }
 }
