@@ -16,6 +16,9 @@
     <Compile Update="NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PrintData.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SearchTimes.cs">
       <SubType>Form</SubType>
     </Compile>

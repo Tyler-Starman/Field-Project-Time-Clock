@@ -69,5 +69,10 @@ namespace TimeClock
                 e.Handled = true;
             }
         }
+
+        private void NewUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
