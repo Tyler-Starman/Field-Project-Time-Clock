@@ -20,6 +20,7 @@ namespace TimeClock
 
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
         SqlCommand cmd;
+        SqlCommand cis;
         private void btnReturn_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
@@ -32,7 +33,7 @@ namespace TimeClock
         {
             try
             {
-                if (txtUsername.Text == "" || txtPassword.Text == "" || txtStudentId.Text == "")
+                if (txtUsername.Text == "" || txtPassword.Text == "" || txtStudentId.Text == "" || txtUserID.Text == "")
                 {
                     MessageBox.Show("Please Enter all fields");
                 }
@@ -40,14 +41,26 @@ namespace TimeClock
                 {
                     SqlConnection con = new SqlConnection(Conn);
                     con.Open();
-                    cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No', '" + txtStudentId.Text + "')", con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student Created");
-                    con.Close();
-                    txtUsername.Clear();
-                    txtPassword.Clear();
-                    txtStudentId.Clear();
+                    SqlCommand checkIfExists = new SqlCommand("SELECT COUNT(*) FROM loginForm WHERE UserID = '" + txtUserID.Text + "'", con);
+                    int UserExist = (int)checkIfExists.ExecuteScalar();
 
+                    if (UserExist > 0)
+                    {
+                        MessageBox.Show("User ID Already Exsits");
+                    }
+
+                    else
+                    {
+                        cmd = new SqlCommand("insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No', '" + txtStudentId.Text + "', '" + txtUserID.Text + "')", con);
+                        //cis = new SqlCommand("IF NOT EXISTS (select * from loginForm where UserID =  '" + txtUserID.Text + " ') BEGIN insert into loginForm values('" + txtUsername.Text + "', '" + txtPassword.Text + "', 'No', '" + txtStudentId.Text + "', '" + txtUserID.Text + "')END; ", con);
+                        cmd.ExecuteNonQuery();
+                        //cis.ExecuteNonQuery();
+                        MessageBox.Show("Student Created");
+                        con.Close();
+                        txtUsername.Clear();
+                        txtPassword.Clear();
+                        txtStudentId.Clear();
+                    }
                 }
             }
             catch (Exception ex)

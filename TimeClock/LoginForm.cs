@@ -33,7 +33,7 @@ namespace TimeClock
                 else
                 {
                     SqlConnection con = new SqlConnection(Conn);
-                    SqlCommand cmd = new SqlCommand("Select * from loginForm where Name=@Username and Password=@UserPassword", con);
+                    SqlCommand cmd = new SqlCommand("Select * from loginForm where UserID=@Username and Password=@UserPassword", con);
                     cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@UserPassword", txtPassword.Text);
 
@@ -52,14 +52,14 @@ namespace TimeClock
                     if (count == 1)
                     {
                         con.Open();
-                        SqlCommand getId = new SqlCommand("Select ID from loginForm where Name=@Username and Password=@UserPassword", con);
+                        SqlCommand getId = new SqlCommand("Select ID from loginForm where UserID=@Username and Password=@UserPassword", con);
                         getId.Parameters.AddWithValue("@Username", txtUsername.Text);
                         getId.Parameters.AddWithValue("@UserPassword", txtPassword.Text);
                         id = getId.ExecuteScalar().ToString();
                         con.Close();
                         MessageBox.Show("Successful Login");
                         //check for Admin login ADMIN MUST BE ID OF 1 IN SQL TABLE
-                        if (txtUsername.Text == "Martin")
+                        if (txtUsername.Text == "Admin")
                         {
                             txtUsername.Clear();
                             txtPassword.Clear();
