@@ -95,3 +95,4 @@ C:\Users\Lj\Documents\GitHub\Field-Project-Time-Clock\TimeClock\obj\Debug\net5.0
 C:\Users\Lj\Documents\GitHub\Field-Project-Time-Clock\TimeClock\obj\Debug\net5.0-windows\TimeClock.pdb
 C:\Users\Lj\Documents\GitHub\Field-Project-Time-Clock\TimeClock\obj\Debug\net5.0-windows\TimeClock.genruntimeconfig.cache
 C:\Users\tyler\Documents\GitHub\Field-Project-Time-Clock\TimeClock\obj\Debug\net5.0-windows\TimeClock.PrintData.resources
+C:\Users\tyler\Documents\GitHub\Field-Project-Time-Clock\TimeClock\obj\Debug\net5.0-windows\TimeClock.SelectStudents.resources

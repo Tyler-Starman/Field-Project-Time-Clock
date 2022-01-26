@@ -84,6 +84,11 @@ namespace TimeClock
             new PrintData().ShowDialog();
         }
 
+        private void btnSelectStudents_Click(object sender, EventArgs e)
+        {
+            new SelectStudents().ShowDialog();
+        }
+
         //on load do something like this
         /*con.Open();
         SqlCommand getStatus = new SqlCommand("select ClockStatus from loginForm where ID = '" + FormLogin.id + "'", con);
