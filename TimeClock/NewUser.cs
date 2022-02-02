@@ -26,6 +26,7 @@ namespace TimeClock
             txtUsername.Clear();
             txtPassword.Clear();
             txtStudentId.Clear();
+            txtUserID.Clear();
             this.Close();
         }
 
@@ -60,6 +61,7 @@ namespace TimeClock
                         txtUsername.Clear();
                         txtPassword.Clear();
                         txtStudentId.Clear();
+                        txtUserID.Clear();
                     }
                 }
             }

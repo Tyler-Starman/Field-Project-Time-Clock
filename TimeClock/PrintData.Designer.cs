@@ -33,13 +33,14 @@ namespace TimeClock
             this.btnPrintTimes = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.btnPrintSelected = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPrintTotals
             // 
-            this.btnPrintTotals.Location = new System.Drawing.Point(461, 181);
+            this.btnPrintTotals.Location = new System.Drawing.Point(324, 177);
             this.btnPrintTotals.Name = "btnPrintTotals";
-            this.btnPrintTotals.Size = new System.Drawing.Size(164, 88);
+            this.btnPrintTotals.Size = new System.Drawing.Size(168, 96);
             this.btnPrintTotals.TabIndex = 0;
             this.btnPrintTotals.Text = "Print Out Totals";
             this.btnPrintTotals.UseVisualStyleBackColor = true;
@@ -47,9 +48,9 @@ namespace TimeClock
             // 
             // btnPrintTimes
             // 
-            this.btnPrintTimes.Location = new System.Drawing.Point(175, 181);
+            this.btnPrintTimes.Location = new System.Drawing.Point(67, 177);
             this.btnPrintTimes.Name = "btnPrintTimes";
-            this.btnPrintTimes.Size = new System.Drawing.Size(164, 88);
+            this.btnPrintTimes.Size = new System.Drawing.Size(168, 96);
             this.btnPrintTimes.TabIndex = 1;
             this.btnPrintTimes.Text = "Print Out Times";
             this.btnPrintTimes.UseVisualStyleBackColor = true;
@@ -59,7 +60,7 @@ namespace TimeClock
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHeader.Location = new System.Drawing.Point(187, 26);
+            this.lblHeader.Location = new System.Drawing.Point(187, 9);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(427, 54);
             this.lblHeader.TabIndex = 20;
@@ -67,7 +68,7 @@ namespace TimeClock
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(336, 330);
+            this.btnReturn.Location = new System.Drawing.Point(345, 386);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(128, 52);
             this.btnReturn.TabIndex = 21;
@@ -75,11 +76,22 @@ namespace TimeClock
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // btnPrintSelected
+            // 
+            this.btnPrintSelected.Location = new System.Drawing.Point(579, 177);
+            this.btnPrintSelected.Name = "btnPrintSelected";
+            this.btnPrintSelected.Size = new System.Drawing.Size(168, 96);
+            this.btnPrintSelected.TabIndex = 22;
+            this.btnPrintSelected.Text = "Print Selected Students";
+            this.btnPrintSelected.UseVisualStyleBackColor = true;
+            this.btnPrintSelected.Click += new System.EventHandler(this.btnPrintSelected_Click);
+            // 
             // PrintData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPrintSelected);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.btnPrintTimes);
@@ -97,5 +109,6 @@ namespace TimeClock
         private System.Windows.Forms.Button btnPrintTimes;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnPrintSelected;
     }
 }

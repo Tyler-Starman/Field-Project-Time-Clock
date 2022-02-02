@@ -36,7 +36,6 @@ namespace TimeClock
             this.btnClockOutAll = new System.Windows.Forms.Button();
             this.btnClockedOut = new System.Windows.Forms.Button();
             this.btnPrintOut = new System.Windows.Forms.Button();
-            this.btnSelectStudents = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClockedIn
@@ -109,22 +108,11 @@ namespace TimeClock
             this.btnPrintOut.UseVisualStyleBackColor = true;
             this.btnPrintOut.Click += new System.EventHandler(this.btnPrintOut_Click);
             // 
-            // btnSelectStudents
-            // 
-            this.btnSelectStudents.Location = new System.Drawing.Point(193, 13);
-            this.btnSelectStudents.Name = "btnSelectStudents";
-            this.btnSelectStudents.Size = new System.Drawing.Size(119, 45);
-            this.btnSelectStudents.TabIndex = 9;
-            this.btnSelectStudents.Text = "Select Students";
-            this.btnSelectStudents.UseVisualStyleBackColor = true;
-            this.btnSelectStudents.Click += new System.EventHandler(this.btnSelectStudents_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 264);
-            this.Controls.Add(this.btnSelectStudents);
             this.Controls.Add(this.btnPrintOut);
             this.Controls.Add(this.btnClockedOut);
             this.Controls.Add(this.btnClockOutAll);
@@ -147,6 +135,5 @@ namespace TimeClock
         private System.Windows.Forms.Button btnClockOutAll;
         private System.Windows.Forms.Button btnClockedOut;
         private System.Windows.Forms.Button btnPrintOut;
-        private System.Windows.Forms.Button btnSelectStudents;
     }
 }
