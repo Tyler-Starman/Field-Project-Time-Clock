@@ -111,9 +111,9 @@ namespace TimeClock
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(0, 0);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(12, 392);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(84, 29);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(90, 46);
             this.btnDeleteStudent.TabIndex = 9;
             this.btnDeleteStudent.Text = "Delete Students";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
