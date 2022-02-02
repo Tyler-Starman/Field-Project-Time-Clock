@@ -82,7 +82,7 @@ namespace TimeClock
                             FROM loginForm lf
                             INNER JOIN ClockPunches cp
                             ON lf.id = cp.id
-                            WHERE name = '"+names[i]+"';";
+                            WHERE name = '"+names[i]+ "' and (select termStart from termInfo) <= ClockIn and ClockIn <= (select termEnd from termInfo);";
                 comm.CommandText = sql;
 
                 SqlDataReader sqlReader = comm.ExecuteReader();
@@ -129,7 +129,8 @@ namespace TimeClock
                 String sql = @"select lf.ID, lf.Name, count(distinct convert(date,ClockIn)) AS TotalDays, sum(CAST(TotalTimeDay AS DECIMAL(6,2))/60) AS TotalHours
                             from ClockPunches cp INNER JOIN loginForm lf
                             ON lf.id = cp.id
-                            WHERE name = '"+names[i]+"'Group by lf.Name, lf.ID;";
+                            WHERE name = '"+names[i]+ "' and (select termStart from termInfo) <= ClockIn and ClockIn <= (select termEnd from termInfo)" +
+                            "Group by lf.Name, lf.ID;";
                 comm.CommandText = sql;
 
                 SqlDataReader sqlReader = comm.ExecuteReader();
