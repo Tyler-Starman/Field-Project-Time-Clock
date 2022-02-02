@@ -68,5 +68,10 @@ namespace TimeClock
                 lvStudentNames.Items.Add(selectedItem);
             }
         }
+
+        private void lvStudentNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

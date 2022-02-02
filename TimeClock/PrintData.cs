@@ -35,7 +35,8 @@ namespace TimeClock
             String sql = @"SELECT lf.Name, cp.ClockIn, cp.ClockOut, cp.TotalTimeDay
                             FROM loginForm lf
                             INNER JOIN ClockPunches cp
-                            ON lf.id = cp.id;";
+                            ON lf.id = cp.id
+                            where '"+TermYear.start+"' <= clockIn and clockIn <= '"+TermYear.end+"' ;";
 
             comm.CommandText = sql;
             comm.Connection.Open();

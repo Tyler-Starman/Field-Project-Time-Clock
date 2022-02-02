@@ -39,9 +39,10 @@ namespace TimeClock
             // btnMove
             // 
             this.btnMove.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMove.Location = new System.Drawing.Point(379, 140);
+            this.btnMove.Location = new System.Drawing.Point(541, 233);
+            this.btnMove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(43, 42);
+            this.btnMove.Size = new System.Drawing.Size(61, 70);
             this.btnMove.TabIndex = 2;
             this.btnMove.Text = ">";
             this.btnMove.UseVisualStyleBackColor = true;
@@ -50,27 +51,31 @@ namespace TimeClock
             // lvSelectedStudents
             // 
             this.lvSelectedStudents.HideSelection = false;
-            this.lvSelectedStudents.Location = new System.Drawing.Point(506, 111);
+            this.lvSelectedStudents.Location = new System.Drawing.Point(723, 185);
+            this.lvSelectedStudents.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lvSelectedStudents.Name = "lvSelectedStudents";
-            this.lvSelectedStudents.Size = new System.Drawing.Size(229, 229);
+            this.lvSelectedStudents.Size = new System.Drawing.Size(325, 379);
             this.lvSelectedStudents.TabIndex = 3;
             this.lvSelectedStudents.UseCompatibleStateImageBehavior = false;
             // 
             // lvStudentNames
             // 
             this.lvStudentNames.HideSelection = false;
-            this.lvStudentNames.Location = new System.Drawing.Point(74, 111);
+            this.lvStudentNames.Location = new System.Drawing.Point(106, 185);
+            this.lvStudentNames.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lvStudentNames.Name = "lvStudentNames";
-            this.lvStudentNames.Size = new System.Drawing.Size(229, 229);
+            this.lvStudentNames.Size = new System.Drawing.Size(325, 379);
             this.lvStudentNames.TabIndex = 4;
             this.lvStudentNames.UseCompatibleStateImageBehavior = false;
+            this.lvStudentNames.SelectedIndexChanged += new System.EventHandler(this.lvStudentNames_SelectedIndexChanged);
             // 
             // btnMoveBack
             // 
             this.btnMoveBack.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMoveBack.Location = new System.Drawing.Point(379, 225);
+            this.btnMoveBack.Location = new System.Drawing.Point(541, 375);
+            this.btnMoveBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMoveBack.Name = "btnMoveBack";
-            this.btnMoveBack.Size = new System.Drawing.Size(43, 42);
+            this.btnMoveBack.Size = new System.Drawing.Size(61, 70);
             this.btnMoveBack.TabIndex = 5;
             this.btnMoveBack.Text = "<";
             this.btnMoveBack.UseVisualStyleBackColor = true;
@@ -78,23 +83,25 @@ namespace TimeClock
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(346, 361);
+            this.btnPrint.Location = new System.Drawing.Point(494, 602);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(115, 41);
+            this.btnPrint.Size = new System.Drawing.Size(164, 68);
             this.btnPrint.TabIndex = 6;
             this.btnPrint.Text = "Print Selected Students";
             this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // SelectStudents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnMoveBack);
             this.Controls.Add(this.lvStudentNames);
             this.Controls.Add(this.lvSelectedStudents);
             this.Controls.Add(this.btnMove);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SelectStudents";
             this.Text = "SelectStudents";
             this.ResumeLayout(false);
