@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,12 @@ namespace TimeClock
         public SelectStudents()
         {
             InitializeComponent();
+            //Print Preview Stuff
+            printDocument.PrintPage +=
+                new PrintPageEventHandler(printDocument1_PrintPage);
             using (SqlConnection con = new SqlConnection(Conn))
             {
-                using (SqlDataAdapter sda = new SqlDataAdapter("SELECT Name FROM loginForm", con))
+                using (SqlDataAdapter sda = new SqlDataAdapter("SELECT Name, ID FROM loginForm", con))
                 {
                     //Fill the DataTable with records from Table.
                     DataTable dt = new DataTable();
@@ -40,11 +44,11 @@ namespace TimeClock
         }
 
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
-
-        private void lbStudentNames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        //Print Preview Stuff
+        private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+        private PrintDocument printDocument = new PrintDocument();
+        private string documentContents;
+        private string stringToPrint;
 
         private void btnMove_Click(object sender, EventArgs e)
         {
@@ -109,6 +113,13 @@ namespace TimeClock
                 sqlReader.Close();
             }
             comm.Connection.Close();
+
+            //Print Preview Stuff
+            String fName = "ClockedTimeSelected.dat";
+            ReadDocument(fName);
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.ShowDialog();
+            //Print Preview Stuff
             MessageBox.Show("Successfully Printed Out Times");
         }
 
@@ -159,6 +170,14 @@ namespace TimeClock
                 sqlReader.Close();
             }
             comm.Connection.Close();
+
+            //Print Preview Stuff
+            String fName = "TotalTimesSelected.dat";
+            ReadDocument(fName);
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.ShowDialog();
+            //Print Preview Stuff
+
             MessageBox.Show("Successfully Printed Out Total Times");
         }
 
@@ -211,6 +230,46 @@ namespace TimeClock
                 //cancelation message
                 MessageBox.Show("Deletion Canceled");
             }
+        }
+
+        //Print Preview Stuff
+        private void ReadDocument(String filename)
+        {
+            string docName = "" + filename + "";
+            string docPath = AppDomain.CurrentDomain.BaseDirectory;
+            printDocument.DocumentName = docName;
+            using (FileStream stream = new FileStream(docPath + docName, FileMode.Open))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                documentContents = reader.ReadToEnd();
+            }
+            stringToPrint = documentContents;
+        }
+
+        void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+
+            // Sets the value of charactersOnPage to the number of characters
+            // of stringToPrint that will fit within the bounds of the page.
+            e.Graphics.MeasureString(stringToPrint, this.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+
+            // Draws the string within the bounds of the page.
+            e.Graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
+            e.MarginBounds, StringFormat.GenericTypographic);
+
+            // Remove the portion of the string that has been printed.
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+
+            // Check to see if more pages are to be printed.
+            e.HasMorePages = (stringToPrint.Length > 0);
+
+            // If there are no more pages, reset the string to be printed.
+            if (!e.HasMorePages)
+                stringToPrint = documentContents;
         }
     }
 }

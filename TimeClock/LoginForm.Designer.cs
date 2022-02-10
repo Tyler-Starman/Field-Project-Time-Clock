@@ -67,9 +67,9 @@ namespace TimeClock
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(92, 38);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 15);
+            this.lblName.Size = new System.Drawing.Size(47, 15);
             this.lblName.TabIndex = 4;
-            this.lblName.Text = "Name:";
+            this.lblName.Text = "User ID:";
             // 
             // lblPassword
             // 

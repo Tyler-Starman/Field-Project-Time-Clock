@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +18,17 @@ namespace TimeClock
         public PrintData()
         {
             InitializeComponent();
+            //Print Preview Stuff
+            printDocument1.PrintPage +=
+                new PrintPageEventHandler(printDocument1_PrintPage);
         }
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
+
+        //Print Preview Stuff
+        private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+        private PrintDocument printDocument = new PrintDocument();
+        private string documentContents;
+        private string stringToPrint;
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
@@ -57,6 +68,14 @@ namespace TimeClock
 
             sqlReader.Close();
             comm.Connection.Close();
+
+            //Print Preview Stuff
+            String fName = "ClockedTime.dat";
+            ReadDocument(fName);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+            //Print Preview Stuff
+
             MessageBox.Show("Successfully Printed Out Times");
         }
 
@@ -90,12 +109,61 @@ namespace TimeClock
 
             sqlReader.Close();
             comm.Connection.Close();
+
+            //Print Preview Stuff
+            String fName = "TotalTimes.dat";
+            ReadDocument(fName);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+            //Print Preview Stuff
+
             MessageBox.Show("Successfully Printed Out Totals");
         }
 
         private void btnPrintSelected_Click(object sender, EventArgs e)
         {
             new SelectStudents().ShowDialog();
+        }
+
+
+        //Print Preview Stuff
+        private void ReadDocument(String filename)
+        {
+            string docName = ""+filename+"";
+            string docPath = AppDomain.CurrentDomain.BaseDirectory;
+            printDocument1.DocumentName = docName;
+            using (FileStream stream = new FileStream(docPath + docName, FileMode.Open))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                documentContents = reader.ReadToEnd();
+            }
+            stringToPrint = documentContents;
+        }
+
+        void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+
+            // Sets the value of charactersOnPage to the number of characters
+            // of stringToPrint that will fit within the bounds of the page.
+            e.Graphics.MeasureString(stringToPrint, this.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+
+            // Draws the string within the bounds of the page.
+            e.Graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
+            e.MarginBounds, StringFormat.GenericTypographic);
+
+            // Remove the portion of the string that has been printed.
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+
+            // Check to see if more pages are to be printed.
+            e.HasMorePages = (stringToPrint.Length > 0);
+
+            // If there are no more pages, reset the string to be printed.
+            if (!e.HasMorePages)
+                stringToPrint = documentContents;
         }
     }
 }
