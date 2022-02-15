@@ -17,7 +17,6 @@ namespace TimeClock
         {
             InitializeComponent();
         }
-
         string Conn = ("Data Source=localhost\\SQLEXPRESS; Initial Catalog=TimeClock; Integrated Security=true;");
         SqlCommand cmd;
         SqlCommand cis;
@@ -83,11 +82,6 @@ namespace TimeClock
             {
                 e.Handled = true;
             }
-        }
-
-        private void NewUser_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

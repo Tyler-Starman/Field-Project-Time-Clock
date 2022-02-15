@@ -58,11 +58,11 @@ namespace TimeClock
 
             using (System.IO.StreamWriter writer = new System.IO.StreamWriter(fileName, false, Encoding.UTF8))
             {
-                writer.WriteLine("Name".PadRight(20) + "\t" + "Clock In Time        " + "\t" + "Clock Out Times        " + "\t" + "Total Time(Min)       " + "\t" + "Total Time(Sec)");
+                writer.WriteLine("Name".PadRight(20) + "\t" + "Clock In Time".PadRight(27) + "\t" + "Clock Out Times        " + "\t" + "Total Time(Min)       " + "\t" + "Total Time(Sec)");
                 while (sqlReader.Read())
                 {
                     //writer.WriteLine(sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"]);
-                    writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"] + "\t" + sqlReader["TotalTimeDay"] + "\t\t\t" + sqlReader["TotalTimeSeconds"]);
+                    writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"] + "\t\t\t" + sqlReader["TotalTimeSeconds"]);
                 }
             }
 

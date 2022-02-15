@@ -44,7 +44,7 @@ namespace TimeClock
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(331, 254);
+            this.btnReturn.Location = new System.Drawing.Point(432, 354);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(110, 23);
             this.btnReturn.TabIndex = 20;
@@ -56,7 +56,7 @@ namespace TimeClock
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHeader.Location = new System.Drawing.Point(154, 9);
+            this.lblHeader.Location = new System.Drawing.Point(223, 22);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(319, 54);
             this.lblHeader.TabIndex = 19;
@@ -65,7 +65,7 @@ namespace TimeClock
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(312, 177);
+            this.lblPassword.Location = new System.Drawing.Point(381, 225);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(60, 15);
             this.lblPassword.TabIndex = 18;
@@ -74,7 +74,7 @@ namespace TimeClock
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(73, 119);
+            this.lblName.Location = new System.Drawing.Point(142, 129);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(64, 15);
             this.lblName.TabIndex = 17;
@@ -82,21 +82,21 @@ namespace TimeClock
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(417, 177);
+            this.txtPassword.Location = new System.Drawing.Point(486, 217);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(102, 23);
             this.txtPassword.TabIndex = 18;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(160, 116);
+            this.txtUsername.Location = new System.Drawing.Point(231, 129);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(102, 23);
             this.txtUsername.TabIndex = 15;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(154, 254);
+            this.btnCreate.Location = new System.Drawing.Point(223, 354);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(110, 23);
             this.btnCreate.TabIndex = 19;
@@ -107,7 +107,7 @@ namespace TimeClock
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(307, 124);
+            this.label1.Location = new System.Drawing.Point(381, 132);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
@@ -116,7 +116,7 @@ namespace TimeClock
             // 
             // txtStudentId
             // 
-            this.txtStudentId.Location = new System.Drawing.Point(417, 116);
+            this.txtStudentId.Location = new System.Drawing.Point(486, 126);
             this.txtStudentId.Margin = new System.Windows.Forms.Padding(2);
             this.txtStudentId.Name = "txtStudentId";
             this.txtStudentId.Size = new System.Drawing.Size(102, 23);
@@ -127,7 +127,7 @@ namespace TimeClock
             // lblUserID
             // 
             this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(73, 173);
+            this.lblUserID.Location = new System.Drawing.Point(142, 222);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(47, 15);
             this.lblUserID.TabIndex = 24;
@@ -135,7 +135,7 @@ namespace TimeClock
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(160, 174);
+            this.txtUserID.Location = new System.Drawing.Point(231, 217);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(102, 23);
             this.txtUserID.TabIndex = 17;
@@ -144,7 +144,7 @@ namespace TimeClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 317);
+            this.ClientSize = new System.Drawing.Size(730, 416);
             this.Controls.Add(this.lblUserID);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.txtStudentId);
@@ -158,7 +158,6 @@ namespace TimeClock
             this.Controls.Add(this.btnCreate);
             this.Name = "NewUser";
             this.Text = "NewUser";
-            this.Load += new System.EventHandler(this.NewUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
