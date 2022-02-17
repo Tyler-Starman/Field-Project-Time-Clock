@@ -21,6 +21,8 @@ namespace TimeClock
             //Print Preview Stuff
             printDocument.PrintPage +=
                 new PrintPageEventHandler(printDocument1_PrintPage);
+            this.printDocument.DefaultPageSettings.Landscape = true;
+
             using (SqlConnection con = new SqlConnection(Conn))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter("SELECT Name, ID FROM loginForm", con))
@@ -94,9 +96,10 @@ namespace TimeClock
                 if (i < 1){
                     using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.UTF8))
                     {
-                        writer.WriteLine("Name".PadRight(20) + "\t" + "Clock In Time        " + "\t" + "Clock Out Times        " + "\t" + "Total Time(Min)       " + "\t" + "Total Time(Sec)"); while (sqlReader.Read())
+                        writer.WriteLine("Name".PadRight(25) + "\t" + "Clock In Time".PadRight(35) + "\t" + "Clock Out Times        ".PadRight(30) + "\t" + "Total Time(Min)       ".PadRight(10) + "\t" + "Total Time(Sec)");
+                        while (sqlReader.Read())
                         {
-                            writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"] + "\t" + sqlReader["TotalTimeDay"] + "\t\t\t" + sqlReader["TotalTimeSeconds"]);
+                            writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"].ToString().PadRight(10) + "\t\t\t" + sqlReader["TotalTimeSeconds"].ToString().PadLeft(30));
                         }
                     }
                 }
@@ -106,7 +109,7 @@ namespace TimeClock
                     {
                         while (sqlReader.Read())
                         {
-                            sw.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"] + "\t" + sqlReader["TotalTimeDay"] + "\t\t\t" + sqlReader["TotalTimeSeconds"]);
+                            sw.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"].ToString().PadRight(10) + "\t\t\t" + sqlReader["TotalTimeSeconds"].ToString().PadLeft(30));
                         }
                     }
                 }
@@ -150,10 +153,10 @@ namespace TimeClock
                 {
                     using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.UTF8))
                     {
-                        writer.WriteLine("ID" + "\t" + "Name".PadRight(20) + "\t" + "Total Days" + "\t" + "Total Hours");
+                        writer.WriteLine("ID".PadRight(20) + "\t" + "Name".PadRight(20) + "\t" + "Total Days".PadRight(20));
                         while (sqlReader.Read())
                         {
-                            writer.WriteLine(sqlReader["ID"] + "\t" + sqlReader["Name"].ToString().PadRight(20) + "\t" + sqlReader["TotalDays"] + "\t\t" + sqlReader["TotalHours"]);
+                            writer.WriteLine(sqlReader["ID"].ToString().PadRight(20) + "\t" + sqlReader["Name"].ToString().PadRight(20) + "\t" + sqlReader["TotalDays"].ToString().PadLeft(7) + "\t\t" + sqlReader["TotalHours"]);
                         }
                     }
                 }
@@ -163,7 +166,7 @@ namespace TimeClock
                     {
                         while (sqlReader.Read())
                         {
-                            sw.WriteLine(sqlReader["ID"] + "\t" + sqlReader["Name"].ToString().PadRight(20) + "\t" + sqlReader["TotalDays"] + "\t\t" + sqlReader["TotalHours"]);
+                            sw.WriteLine(sqlReader["ID"].ToString().PadRight(20) + "\t" + sqlReader["Name"].ToString().PadRight(20) + "\t" + sqlReader["TotalDays"].ToString().PadLeft(7) + "\t\t" + sqlReader["TotalHours"]);
                         }
                     }
                 }

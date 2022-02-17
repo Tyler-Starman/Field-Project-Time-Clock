@@ -1,0 +1,53 @@
+INSTRUCTIONS:
+
+MAKE NEW USER:
+To make a new user, press the "new user" button on the initial login window.
+From here, the new user will enter their full name, student ID, a unique username,
+and password. Then press "Create new user."
+
+STUDENT MENU:
+After a student logs in, they will get a simple student page with two buttons:
+clock in, and clock out.
+
+ADMIN MENU:
+After an admin logs in, they will get a page with 7 buttons: Change Term/Year,
+Print Out Data, Clock Out All, View Students Clocked In, View Students Clocked Out,
+View Clock Out Times, and Return to Menu
+
+HOW TO DELETE STUDENTS:
+(WARNING: THIS WILL DELETE ALL STUDENTS OF THE SELECTED NAME. SO IF
+TWO STUDENTS SHARE THE EXACT SAME NAME, DELETING ONE WILL DELETE THEM BOTH
+THIS WILL ALSO DELETE ALL OF THE STUDENTS CLOCK IN/OUT TIMES. IF YOU WANT THEIR TIMES
+DO A PRINT OUT DATA BEFOREHAND)
+To delete a student account, got to Print Out Data > Print Selected Students and from
+the SelectStudents window that opens, select which students you want to delete by clicking
+their name and moving them with the arrow buttons over to the box on the right.
+When you've selected all students you want to delete, press Delete Students in the bottom
+left corner of the page. 
+
+CHANGE TERM/YEAR:
+If you want to change terms to only view students who punch in during a certain term this is the place.
+You will need to select the term end and start date and also the name of the term.
+
+PRINT OUT DATA:
+In the print out data menu you will have three options. Print Out Time will print
+every person who has clocked in between the dates provided in the change/term year menu.
+Print Out Totals will print the totals of every person.
+Print Selected Students will give you a list of every students and allow you to choose
+which students to print out data for. If you click a persons name and the arrow pointing to the right (>)
+you will move them over and they will be printed out. If you want to move a student back press the
+arrow pointing to the left (<).
+
+CLOCK OUT ALL:
+Pressing this button will clock out every student account.
+
+VIEW STUDENTS CLOCKED IN:
+This will display a table of all students currently clocked in.
+
+VIEW STUDENTS CLOCKED OUT:
+This will display a table of all students currently clocked out.
+
+VIEW CLOCK OUT TIMES:
+This will display a table displaying the clock-in/clock-out times as well as
+the total minutes the student was clocked in. You can search by either date,
+or by a students name.
