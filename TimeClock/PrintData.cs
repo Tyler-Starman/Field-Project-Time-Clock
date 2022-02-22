@@ -59,12 +59,19 @@ namespace TimeClock
 
             using (System.IO.StreamWriter writer = new System.IO.StreamWriter(fileName, false, Encoding.UTF8))
             {
-                writer.WriteLine("Name".PadRight(25) + "\t" + "Clock In Time".PadRight(35) + "\t" + "Clock Out Times        ".PadRight(30) + "\t" + "Total Time(Min)       " .PadRight(10)+ "\t" + "Total Time(Sec)");
+                writer.WriteLine("Name".PadRight(20) + "\t" + "Clock In Time".PadRight(30) + "\t" + "Clock Out Times".PadRight(30) + "\t" + "Total Time(Min)" .PadRight(20)+ "\t" + "Total Time(Sec)");
                 while (sqlReader.Read())
                 {
-                    //writer.WriteLine(sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"]);
-                    writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + " \t" + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"].ToString().PadRight(10) + "\t\t\t" + sqlReader["TotalTimeSeconds"].ToString().PadLeft(30));
+                    writer.WriteLine(sqlReader["Name"].ToString().PadRight(20) + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"].ToString().PadRight(16) + "\t\t\t" + sqlReader["TotalTimeSeconds"].ToString().PadLeft(5));
                 }
+
+
+                //writer.WriteLine("Name".PadRight(25) + "\t" + "Clock In Time".PadRight(35) + "\t" + "Clock Out Times        ".PadRight(30) + "\t" + "Total Time(Min)       ".PadRight(10) + "\t" + "Total Time(Sec)");
+                //while (sqlReader.Read())
+                //{
+                //    //writer.WriteLine(sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"]);
+                //    writer.WriteLine(sqlReader["Name"].ToString().PadLeft(20) + "\t" + sqlReader["ClockIn"].ToString().PadRight(30) + "\t" + sqlReader["ClockOut"].ToString().PadRight(30) + "\t" + sqlReader["TotalTimeDay"].ToString().PadRight(10) + "\t\t\t" + sqlReader["TotalTimeSeconds"].ToString().PadLeft(30));
+                //}
             }
 
             sqlReader.Close();
@@ -100,7 +107,7 @@ namespace TimeClock
 
             using (System.IO.StreamWriter writer = new System.IO.StreamWriter(fileName, false, Encoding.UTF8))
             {
-                writer.WriteLine("ID".PadRight(20) + "\t" + "Name".PadRight(20) + "\t" + "Total Days".PadRight(20));
+                writer.WriteLine("ID".PadRight(20) + "\t" + "Name".PadRight(26) + "\t" + "Total Days".PadRight(20));
                 while (sqlReader.Read())
                 {
                     //writer.WriteLine(sqlReader["ClockIn"] + "\t" + sqlReader["ClockOut"]);
@@ -146,14 +153,17 @@ namespace TimeClock
             int charactersOnPage = 0;
             int linesPerPage = 0;
 
+            //Changing Font
+            Font Normal = new Font("Courier New", 9, FontStyle.Regular);
+
             // Sets the value of charactersOnPage to the number of characters
             // of stringToPrint that will fit within the bounds of the page.
-            e.Graphics.MeasureString(stringToPrint, this.Font,
+            e.Graphics.MeasureString(stringToPrint, Normal,
                 e.MarginBounds.Size, StringFormat.GenericTypographic,
                 out charactersOnPage, out linesPerPage);
 
             // Draws the string within the bounds of the page.
-            e.Graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
+            e.Graphics.DrawString(stringToPrint, Normal, Brushes.Black,
             e.MarginBounds, StringFormat.GenericTypographic);
 
             // Remove the portion of the string that has been printed.
